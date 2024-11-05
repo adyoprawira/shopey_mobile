@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
+// Main page of the application.
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
+  // User information
   final String npm = '2306173750'; // NPM
   final String name = 'Adyo Arkan Prawira'; // Name
   final String className = 'KKI'; // Class
 
+  // List of items to be displayed on the homepage.
   final List<ItemHomepage> items = [
     ItemHomepage("View Product", Icons.store, Colors.blue),
     ItemHomepage("Add Product", Icons.add, Colors.green),
@@ -19,15 +22,15 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       // AppBar is the top part of the page that displays the title.
       appBar: AppBar(
-        // The title of the application "Mental Health Tracker" with white text and bold font.
+        // The title of the application "Shopey" with black text and bold font.
         title: const Text(
-          'Mental Health Tracker',
+          'Shopey', 
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
-        // The background color of the AppBar is obtained from the application theme color scheme.
+        // The background color of the AppBar is a custom color.
         backgroundColor: const Color.fromARGB(255, 0, 229, 255),
       ),
       // Body of the page with paddings around it.
@@ -54,7 +57,6 @@ class MyHomePage extends StatelessWidget {
             Center(
               child: Column(
                 // Place the text and grid item vertically.
-
                 children: [
                   // Display the welcome message with bold font and size 18.
                   const Padding(
@@ -93,9 +95,8 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+// Card information that displays the title and content.
 class InfoCard extends StatelessWidget {
-  // Card information that displays the title and content.
-
   final String title;  // Card title.
   final String content;  // Card content.
   final Color cardColor; // Card color.
@@ -140,14 +141,16 @@ class InfoCard extends StatelessWidget {
   }
 }
 
+// Model class for homepage items.
 class ItemHomepage {
-    final String name;
-    final IconData icon;
-    final Color color; // New color property
+    final String name; // Item name.
+    final IconData icon; // Item icon.
+    final Color color; // Item color.
 
     ItemHomepage(this.name, this.icon, this.color);
 }
 
+// Card widget to display an item.
 class ItemCard extends StatelessWidget {
   final ItemHomepage item; 
   
@@ -156,11 +159,12 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: item.color,
+      color: item.color, // Set the background color of the card.
       borderRadius: BorderRadius.circular(12),
       
       child: InkWell(
         onTap: () {
+          // Show a snackbar when the card is tapped.
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(
@@ -175,14 +179,14 @@ class ItemCard extends StatelessWidget {
               children: [
                 Icon(
                   item.icon,
-                  color: Colors.black, // Set icon color from item color
+                  color: Colors.black, // Set icon color to black.
                   size: 30.0,
                 ),
                 const Padding(padding: EdgeInsets.all(3)),
                 Text(
                   item.name,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black), // Set text color from item color
+                  style: TextStyle(color: Colors.black), // Set text color to black.
                 ),
               ],
             ),
