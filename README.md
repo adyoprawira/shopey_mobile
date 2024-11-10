@@ -1,4 +1,4 @@
-# Assignment 1
+# Assignment 7
 ## Explain what are stateless widgets and stateful widgets, and explain the difference between them.
 In Flutter, stateless widgets are widgets that display static content and do not change over time. They rely only on the data provided when they’re created. They are efficient because they don't update after being built, ideal for UI elements like text or icons. On the other hand, stateful widgets are used for dynamic content that needs to change in response to user interaction or data updates. These widgets maintain a separate State object where mutable data is stored, allowing them to rebuild themselves when this state changes.
 ## Mention the widgets that you have used for this project and its uses.
@@ -93,4 +93,18 @@ When a variable is declared with the ```const``` keyword, it indicates that the 
             );
         },
    ```
+
+# Assignment 8
+##  What is the purpose of ```const``` in Flutter? Explain the advantages of using ```const``` in Flutter code. When should we use ```const```, and when should it not be used?
+The ```const``` keyword in Flutter marks an object as immutable and compile-time constant. When an object is declared with ```const```, it’s created once, stored in memory, and reused whenever that constant value is needed.  We should use ```const``` on datas that don't depend on states, datas that are immutable datas,etc. We shouldn't use ```const``` on datas that depend on states, dynamic datas/contents, etc.
+
+## Explain and compare the usage of Column and Row in Flutter. Provide example implementations of each layout widget!
+
+## List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
+
+## How do you set the theme within a Flutter application to ensure consistency? Did you implement a theme in your application?
+
+##  How do you manage navigation in a multi-page Flutter application?
+
+
    
