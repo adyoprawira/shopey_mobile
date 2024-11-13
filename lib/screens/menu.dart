@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopey_mobile/widgets/left_drawer.dart';
+import 'package:shopey_mobile/widgets/product_card.dart';
 
 // Main page of the application.
 class MyHomePage extends StatelessWidget {
@@ -24,7 +26,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         // The title of the application "Shopey" with black text and bold font.
         title: const Text(
-          'Shopey', 
+          'Shopey',
           style: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
@@ -33,6 +35,8 @@ class MyHomePage extends StatelessWidget {
         // The background color of the AppBar is a custom color.
         backgroundColor: const Color.fromARGB(255, 0, 229, 255),
       ),
+      // Add drawer as a parameter value for the drawer attribute of the Scaffold widget
+      drawer: const LeftDrawer(),
       // Body of the page with paddings around it.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -97,18 +101,18 @@ class MyHomePage extends StatelessWidget {
 
 // Card information that displays the title and content.
 class InfoCard extends StatelessWidget {
-  final String title;  // Card title.
-  final String content;  // Card content.
+  final String title; // Card title.
+  final String content; // Card content.
   final Color cardColor; // Card color.
   final Color textColor; // Text color.
 
   const InfoCard({
-    super.key, 
-    required this.title, 
+    super.key,
+    required this.title,
     required this.content,
     this.cardColor = const Color.fromARGB(255, 0, 229, 255),
     this.textColor = Colors.black,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -139,60 +143,4 @@ class InfoCard extends StatelessWidget {
       ),
     );
   }
-}
-
-// Model class for homepage items.
-class ItemHomepage {
-    final String name; // Item name.
-    final IconData icon; // Item icon.
-    final Color color; // Item color.
-
-    ItemHomepage(this.name, this.icon, this.color);
-}
-
-// Card widget to display an item.
-class ItemCard extends StatelessWidget {
-  final ItemHomepage item; 
-  
-  const ItemCard(this.item, {super.key}); 
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color, // Set the background color of the card.
-      borderRadius: BorderRadius.circular(12),
-      
-      child: InkWell(
-        onTap: () {
-          // Show a snackbar when the card is tapped.
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text("You have pressed the ${item.name} button!"))
-            );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.black, // Set icon color to black.
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black), // Set text color to black.
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  } 
 }
