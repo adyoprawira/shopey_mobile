@@ -99,12 +99,93 @@ When a variable is declared with the ```const``` keyword, it indicates that the 
 The ```const``` keyword in Flutter marks an object as immutable and compile-time constant. When an object is declared with ```const```, it’s created once, stored in memory, and reused whenever that constant value is needed.  We should use ```const``` on datas that don't depend on states, datas that are immutable datas,etc. We shouldn't use ```const``` on datas that depend on states, dynamic datas/contents, etc.
 
 ## Explain and compare the usage of Column and Row in Flutter. Provide example implementations of each layout widget!
+ `Column` and `Row` are two styles of layout widgets in Flutter than allow to arrange the widgets vertically by using `Column` or horizontally by using `Row`.
+
+`Column` arranges the widget vertically. The example is on 'productentry_form.dart'
+     
+      ```dart
+      ...
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Title"),
+          TextFormField(),
+          SizedBox(height: 10),
+          Text("Description"),
+          TextFormField(),
+        ],
+      )
+      ```
+
+  `Row` arranges the widget horizontally. The example is on 'main.dart'
+
+        ```dart
+        ...
+        Row(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: [
+             InfoCard(title: 'NPM', content: npm),
+             InfoCard(title: 'Name', content: name),
+             InfoCard(title: 'Class', content: className),
+           ],
+         )
+        ```
+
+   Comparison of `Column` and `Row` is on the allignment options, they both provide alignment properties like `mainAxisAlignment` (allign along the main axis) and `crossAxisAlignment` (aligning across or perpendicular to axis).
 
 ## List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
+Input elements used in `productentry_form.dart` is **TextFormField**, for name,price,description, etc. Here its features are validation, hint for the text, and label for the text. Its use is to provide various customization options and input types for the user to interact.
+   Other Flutter input elements not used are checkboxes, radios, dropdowns.
+
+   Example of an unused input element:
+
+      ```dart
+      Checkbox(
+        value: isSelected,
+        onChanged: (bool? newValue) {
+          setState(() {
+            isSelected = newValue!;
+          });
+        },
+      )
+      ```
 
 ## How do you set the theme within a Flutter application to ensure consistency? Did you implement a theme in your application?
+   We set the theme by setting a global theme to ensure its consistency. I implemented it on `main.dart` with the main primary and secondary color to be blue.
+
+      ```dart
+      return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.blue,
+          ).copyWith(
+            primary: const Color.fromARGB(255, 0, 229, 255),
+            secondary: const Color.fromARGB(255, 0, 229, 255),
+          ),
+          useMaterial3: true,
+        ),
+        home: MyHomePage(),
+      );
+      ```
 
 ##  How do you manage navigation in a multi-page Flutter application?
+   Flutter handles navigation by using the `Navigator` class, here we used `Navigator.push`, `Navigator.pushReplacement`, and `Navigator.pop`. I have used these navigations on my Flutter project as follows. On `product_card.dart` I used both `Navigator.push` and `Navigator.pushReplacement`, in this case, `Navigator.push` adds a new page on top of the current stack allowing users to navigate back to the previous page. Meanwhile, `Navigator.pushReplacement replaces the current page with a new one, removing the previous page from the navigation stack.
+
+      ```dart
+      // Navigator.push example
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProductEntryFormPage()),
+      );
+
+      // Navigator.pushReplacement example
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MyHomePage()),
+      );
+      ```
 
 
    
