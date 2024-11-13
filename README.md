@@ -134,7 +134,7 @@ The ```const``` keyword in Flutter marks an object as immutable and compile-time
    Comparison of `Column` and `Row` is on the allignment options, they both provide alignment properties like `mainAxisAlignment` (allign along the main axis) and `crossAxisAlignment` (aligning across or perpendicular to axis).
 
 ## List the input elements you used on the form page in this assignment. Are there other Flutter input elements you didn’t use in this assignment? Explain!
-Input elements used in `productentry_form.dart` is **TextFormField**, for name,price,description, etc. Here its features are validation, hint for the text, and label for the text. Its use is to provide various customization options and input types for the user to interact.
+Input elements used in `productentry_form.dart` is **TextFormField**, for name, price, description, etc. Here its features are validation, hint for the text, and label for the text. Its use is to provide various customization options and input types for the user to interact.
    Other Flutter input elements not used are checkboxes, radios, dropdowns.
 
    Example of an unused input element:
