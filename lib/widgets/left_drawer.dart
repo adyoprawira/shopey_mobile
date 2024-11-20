@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopey_mobile/screens/menu.dart';
 import 'package:shopey_mobile/screens/productentry_form.dart';
+import 'package:shopey_mobile/screens/list_productentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -52,7 +53,18 @@ class LeftDrawer extends StatelessWidget {
                 builder: (context) => const ProductEntryFormPage(),
               ));
         },
-      )
+      ),
+      ListTile(
+        leading: const Icon(Icons.add_shopping_cart),
+        title: const Text('Product List'),
+        onTap: () {
+          // Route to the mood page
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+          );
+        },
+      ),
     ]));
   }
 }
