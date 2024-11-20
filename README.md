@@ -186,6 +186,26 @@ Input elements used in `productentry_form.dart` is **TextFormField**, for name, 
         MaterialPageRoute(builder: (context) => MyHomePage()),
       );
       ```
+# Assignment 9
+## Explain why we need to create a model to retrieve or send JSON data. Will an error occur if we don't create a model first?
+Because models can assist in mapping the JSON data. This helps maintain the data structure to remain consistent and validated. Broadly speaking, we can still work with JSON without a model, but it requires more complex steps to map the data for processing, making it more prone to errors. The presence of a model provides a simpler and more structured way, thereby minimizing the occurrence of errors.
+## Explain the function of the http library that you implemented for this task.
+HTTP serves as the communication medium between our Flutter application and Django server. Through HTTP, Flutter can send requests such as `GET`, `POST`, `PUT`, or `DELETE` to the Django server.
+## Explain the function of `CookieRequest` and why it’s necessary to share the `CookieRequest` instance with all components in the Flutter app.
+`CookieRequest` functions to manage user authentication sessions. With `CookieRequest`, the application can automatically handle cookies to ensure that users remain authenticated. The `CookieRequest` instance must be shared across all components to ensure users stay authenticated for every HTTP request. This allows all parts of the application requiring authentication to use the same instance, eliminating the need to log in repeatedly.
+## Explain the mechanism of data transmission, from input to display in Flutter.
+The input data entered by users in the Flutter application is sent to the Django server via HTTP. The server then sends a response back to Flutter, which displays the results to the user.
+## Explain the authentication mechanism from login, register, to logout. Start from inputting account data in Flutter to Django’s completion of the authentication process and display of the menu in Flutter.
 
+-`Register`
+The user inputs credential data, which is then sent to the Django server via HTTP. The server verifies this data against the database and its rules. If successful, the server creates a new user with the provided credentials.
+
+-`Login`
+The user inputs credential data, which is then sent to the Django server via HTTP. The server verifies this data against the database. If the credentials match, the user is authenticated, and the application stores an authentication cookie for the session.
+
+-`Logout`
+The user logs out, and the application clears the authentication cookie, terminating the session.
+
+##  Explain how you implement the checklist above step by step! (not just following the tutorial).
 
    
